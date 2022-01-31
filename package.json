@@ -40,7 +40,8 @@
         "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\"",
         "lint:quiet": "eslint --fix --quiet \"src/**/*.{ts,tsx,js,jsx}\"",
         "prettier": "prettier --check \"./**/*.{ts,tsx,js,jsx,json,md}\"",
-        "prettier:write": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\""
+        "prettier:write": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\"",
+        "pre-commit": "lint-staged"
     },
     "lint-staged": {
         "*.{js,ts,tsx}": [
