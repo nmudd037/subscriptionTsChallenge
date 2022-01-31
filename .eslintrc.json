@@ -1,0 +1,93 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2021": true
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 12,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "typescript": {}
+        }
+    },
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+            "rules": {
+                // for samples
+                "no-unused-vars": 0
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:react/recommended",
+                "airbnb",
+                "airbnb/hooks",
+                "plugin:react/jsx-runtime", // Avoid manual import React in .jsx and .tsx modules
+                "plugin:prettier/recommended"
+            ],
+            "plugins": ["@typescript-eslint"],
+            "parser": "@typescript-eslint/parser",
+            "rules": {
+                "@typescript-eslint/no-empty-function": 0,
+                "@typescript-eslint/explicit-function-return-type": 0,
+                "@typescript-eslint/no-implicit-any": 0,
+                "@typescript-eslint/no-explicit-any": 0, // for tests
+                "@typescript-eslint/interface-name-prefix": 0,
+                "@typescript-eslint/no-inferrable-types": 0,
+                "@typescript-eslint/camelcase": 0,
+                "react/display-name": 0, // for tests
+                "react/prop-types": 0,
+                "react/react-in-jsx-scope": 0,
+                "no-extra-boolean-cast": 0,
+                "no-use-before-define": "off",
+                "@typescript-eslint/no-use-before-define": ["error"],
+                "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+                "import/extensions": [
+                    "error",
+                    "ignorePackages",
+                    {
+                        "ts": "never",
+                        "tsx": "never"
+                    }
+                ],
+                "jsx-a11y/label-has-associated-control": [
+                    2,
+                    {
+                        "assert": "either" // either check for `htmlFor` or `nesting`
+                    }
+                ],
+                "react-hooks/rules-of-hooks": "error",
+                "react-hooks/exhaustive-deps": "warn",
+                "react/jsx-props-no-spreading": "off",
+                "import/prefer-default-export": "off",
+                "react/require-default-props": "off",
+                "no-shadow": "off",
+                "@typescript-eslint/no-shadow": ["error"],
+                "no-plusplus": "off",
+                "no-underscore-dangle": "off",
+                "no-param-reassign": "off",
+                "react/destructuring-assignment": "off",
+                "import/order": "off", // Maybe we can think of having import order?
+                "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+                "no-nested-ternary": "off", // Do we really want nested ternary assignments?
+                "no-unused-vars": "off", // Until we implement useApi?
+                "@typescript-eslint/no-unused-vars": "error", // Until we implement useApi?
+                "no-undef": "off" // Until we implement useApi?
+            }
+        }
+    ]
+}
